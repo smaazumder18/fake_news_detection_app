@@ -64,8 +64,6 @@ if article_text:
     print("\nExtracted Article Text:")
     print(article_text[:500])  # Print only the first 500 characters for preview
 
-!pip install wordcloud matplotlib
-
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
