@@ -15,6 +15,19 @@ import os
 api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = api_key
 
+# Check if API key is being loaded correctly
+openai.api_key = os.getenv("OPENAI_API_KEY")
+if not openai.api_key:
+    raise ValueError("API Key is not set. Please check your secrets configuration.")
+
+# Test with request
+response = openai.Completion.create(
+    model="text-davinci-003", 
+    prompt="Hello, can you help me detect fake news?",
+    max_tokens=50
+)
+print(response.choices[0].text)
+
 # Make a request to the Chat API
 try:
     response = openai.ChatCompletion.create(
