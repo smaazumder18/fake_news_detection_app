@@ -12,10 +12,8 @@ print(openai.__version__)
 
 # Initiate OpenAI client
 import os
-from openai import OpenAI
 api_key = os.getenv("OPENAI_API_KEY")
-#client = OpenAI(api_key="OPENAI_API_KEY")
-client = OpenAI(api_key=api_key)
+openai.api_key = api_key
 
 # Make a request to the Chat API
 try:
