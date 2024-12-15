@@ -10,14 +10,14 @@ import openai
 
 print(openai.__version__)
 
-# Initiate OpenAI client
+# Initiate OpenAI
 import os
 api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = api_key
 
 # Make a request to the Chat API
 try:
-    response = client.chat.completions.create(
+    response = openai.Completion.create(
         model="gpt-3.5-turbo",  # Use "gpt-4" if needed
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
@@ -88,7 +88,7 @@ if article_text:
 def summarize_text(text, max_length=100):
     try:
         # Make a request to GPT for summarization
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # Use "gpt-4" if available
             messages=[
                 {"role": "system", "content": "You are an assistant summarizing articles."},
@@ -277,7 +277,7 @@ def generate_word_cloud(text):
 # 3. Summarize Text using OpenAI
 def summarize_text(text, max_length=100):
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
