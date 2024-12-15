@@ -17,7 +17,7 @@ openai.api_key = api_key
 
 # Make a request to the Chat API
 try:
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Use "gpt-4" if needed
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
