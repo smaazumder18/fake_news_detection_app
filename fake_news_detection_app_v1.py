@@ -21,9 +21,12 @@ if not openai.api_key:
     raise ValueError("API Key is not set. Please check your secrets configuration.")
 
 # Test with request
-response = openai.Completion.create(
-    model="text-davinci-003", 
-    prompt="Hello, can you help me detect fake news?",
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",  # Or use gpt-4 if you have access
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello! How can I help detect fake news?"}
+    ],
     max_tokens=50
 )
 print(response.choices[0].text)
